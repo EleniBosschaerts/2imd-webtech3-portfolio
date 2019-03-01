@@ -1,0 +1,200 @@
+html,
+body,
+.ticket {
+    height: 100%;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: .9em;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 3em;
+    order: -1;
+    flex: 1 1 auto;
+    letter-spacing: 5px;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-weight: 200;
+    font-size: 1em;
+    order 1;
+    letter-spacing: 3px;
+}
+
+b {
+    font-weight: 900;
+    letter-spacing: 3px;
+    font-size: 1.3em;
+}
+
+.ticket__WeAreIMD1 {
+    order: 1;
+}
+
+.ticket__WeAreIMD2 {
+    order -1;
+}
+
+div.wrapper {
+    width: 90%;
+}
+
+div.ticket {
+    margin: 15em 5em;
+    position: relative;
+    /*border: 0.1px solid black;*/
+}
+
+div.bgi {
+    background-image: url(ticket.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    filter: opacity(.4);
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 3px solid green;
+    height: 900px;
+    width: 100%;
+    margin: 15em 5em;
+    position: absolute;
+    left: -2;
+    top: 0;
+    z-index: -5;
+}
+
+/*
+.ticket *:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+*/
+
+.ticket {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "ticket__WeAreIMD ticket__WeAreIMD ticket__WeAreIMD ticket__qr" "ticket__info_date ticket__info_admit ticket__info_price ticket__qr" "ticket__details ticket__details ticket__details ticket__qr";
+}
+
+div.ticket__WeAreIMD,
+.ticket__info_date,
+.ticket__info_admit,
+.ticket__info_price,
+.ticket__details,
+.ticket__qr {
+    outline: 0.1px solid;
+    /*
+    border: 0.1px solid black;
+    justify-self: stretch;
+    align-self: stretch;
+    justify-self: center;
+    align-self: center;*/
+    justify-self: stretch;
+    align-self: stretch;
+    text-align: center;
+    padding: 1em;
+}
+
+.ticket__WeAreIMD {
+    grid-area: ticket__WeAreIMD;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket__info_date {
+    grid-area: ticket__info_date;
+}
+
+.ticket__info_date p {
+    padding-top: 3em;
+}
+
+.ticket__info_admit {
+    grid-area: ticket__info_admit;
+}
+
+.ticket__info_admit p {
+    padding-top: 3em;
+}
+
+.ticket__info_price {
+    grid-area: ticket__info_price;
+}
+
+.ticket__info_price p {
+    padding-top: 3em;
+}
+
+.ticket__details {
+    grid-area: ticket__details;
+}
+
+.ticket__qr {
+    grid-area: ticket__qr;
+    /*border: none;
+    align-self: center; */
+}
+
+.ticket__qr img {
+    width: 80%;
+    text-align: center;
+}
+
+/* MOBILE */
+
+@media(max-width: 812px) {
+
+    h1 {
+        color: white;
+    }
+    
+    h2 {
+        color: white;
+    }
+    .ticket__WeAreIMD1 {
+        order: -1;
+    }
+    .ticket__WeAreIMD2 {
+        order 1;
+    }
+    
+    .ticket{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas: "ticket__WeAreIMD ticket__WeAreIMD" "ticket__qr ticket__qr" "ticket__info_date ticket__info_admit" "ticket__info_price ticket__info_price";
+    }
+    .ticket__WeAreIMD {
+        grid-area: ticket__WeAreIMD;
+        background-color: black;
+    }
+    .ticket__qr {
+        grid-area: ticket__qr;
+    }
+    .ticket__info_price {
+        grid-area: ticket__info_price;
+    }
+    .ticket__info_admit {
+        grid-area: ticket__info_admit;
+    }
+    .ticket__info_date {
+        grid-area: ticket__info_date;
+    }
+    .ticket__details {
+        display: none;
+    }
+
+
+div.ticket__WeAreIMD, .ticket__details, .ticket__qr {
+    outline: none;
+}
+
+.ticket__info_date, .ticket__info_admit, .ticket__info_price {
+    outline: 0.1px solid;
+}
+
+
+}
