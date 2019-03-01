@@ -56,11 +56,11 @@ div.bgi {
     background-color: rgba(255, 255, 255, 0.4);
     border: 3px solid green;
     height: 900px;
-    width: 100%;
-    margin: 15em 5em;
+    width: 90%;
+    margin: 12em 3em;
     position: absolute;
-    left: -2;
     top: 0;
+    left: 0;
     z-index: -5;
 }
 
@@ -146,11 +146,9 @@ div.ticket__WeAreIMD,
 /* MOBILE */
 
 @media(max-width: 812px) {
-
     h1 {
         color: white;
     }
-    
     h2 {
         color: white;
     }
@@ -158,10 +156,9 @@ div.ticket__WeAreIMD,
         order: -1;
     }
     .ticket__WeAreIMD2 {
-        order 1;
+        order: 1;
     }
-    
-    .ticket{
+    .ticket {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -186,15 +183,14 @@ div.ticket__WeAreIMD,
     .ticket__details {
         display: none;
     }
-
-
-div.ticket__WeAreIMD, .ticket__details, .ticket__qr {
-    outline: none;
-}
-
-.ticket__info_date, .ticket__info_admit, .ticket__info_price {
-    outline: 0.1px solid;
-}
-
-
+    div.ticket__WeAreIMD,
+    .ticket__details,
+    .ticket__qr {
+        outline: none;
+    }
+    .ticket__info_date,
+    .ticket__info_admit,
+    .ticket__info_price {
+        outline: 0.1px solid;
+    }
 }
