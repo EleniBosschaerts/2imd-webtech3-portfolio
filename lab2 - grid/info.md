@@ -9,3 +9,12 @@ Files [Lab2_Grid_Flexbox](https://github.com/Leni1803/2imd-webtech3-portfolio/tr
 Link to Codepen [Lab2_Flexbox_imdstagram](https://codepen.io/Eleni_1/pen/OqMxWz)
 
 Files [Lab2_Flexbox_imdstagram_FILES](https://github.com/Leni1803/2imd-webtech3-portfolio/tree/master/lab2%20-%20grid/Lab2_IMDstagram_Flexbox)
+
+
+## flexboxfroggy & cssgridgarden 
+
+![alt text](https://github.com/Leni1803/2imd-webtech3-portfolio/blob/master/lab2%20-%20grid/1819_Webtech3_010319_GRID_FlexboxFroggy.png "FlexboxFroggy")
+
+![alt text](https://github.com/Leni1803/2imd-webtech3-portfolio/blob/master/lab2%20-%20grid/1819_Webtech3_010319_GRID_GridGarden.png "GridGarden")
+
+
