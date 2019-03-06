@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+
+/* FLEXBOX NAV */
+nav ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: space-around;
+  list-style-type: none;
+  grid-template-columns: repeat(5, auto);
+  padding: 0.6em;
+}
+
+nav ul li {
+  justify-self: center;
+  align-self: center;
+  /*flex: 1 1 auto;*/
+}
+
+nav ul li.typography,
+li.ui {
+  order: -1;
+}
+
+@media(max-width: 900px) {
+  nav ul li.logo {
+    order: 0;
+    flex: 1 0 100%;
+    text-align: center;
+    align-self: center;
+  }
+
+  nav ul li.typography, li.ui, li.branding, li.graffiti{
+    order: 0;
+    flex: 0 0 20%;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 0 2em;
+  }
+}
+
+/* FLEXBOX IMG */
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1em;
+  /*flex: 1 1 auto;*/
+  flex: 1 1 auto;
+  justify-content: space-around;
+}
+
+.grid div {
+  justify-self: center;
+  align-self: center;
+}
