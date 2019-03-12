@@ -1,5 +1,5 @@
 # 2imd-webtech3-portfolio
-[Eleni's portfolio van Webtech 3 (2imd](https://github.com/Leni1803/2imd-webtech3-portfolio)
+[Eleni's portfolio van Webtech 3 - 2imd](https://github.com/Leni1803/2imd-webtech3-portfolio)
 
 
 ## [Lab 1 - git](https://github.com/Leni1803/2imd-webtech3-portfolio/tree/master/lab1%20-%20git)
