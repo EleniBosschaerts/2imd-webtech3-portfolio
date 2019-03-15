@@ -1,16 +1,39 @@
 class Note {
+  titel = "Hello";
   constructor(title) {
     this.title = title;
     // HINT🤩 
     this.element = this.createElement(title);
   }
-  
   createElement(title){
+    // class - div
     let newNote = document.createElement('div');
+    newNote.setAttribute("class", "card");
+
+    // p element
+    let newTitle = document.createElement('p');
+    // text in innerHTML p
     
+    newTitle.innerHTML = `${title}`;
+    
+    console.log(this.titel);
+
+    // make link 
+    let removeLink = document.createElement('a');
+    removeLink.setAttribute("href", "#");
+    removeLink.setAttribute("class", "card-remove");
+    removeLink.innerHTML = "Remove";
+    // append p and link to div.card
+    newNote.appendChild(newTitle);
+    newNote.appendChild(removeLink);
+    // HINT🤩 
+    removeLink.addEventListener('click', this.remove.bind(newNote));
+
     // HINT🤩 
     //a.addEventListener('click', this.remove.bind(newNote));
-    
+    //removeLink.addEventListener('click', this.remove.bind(newNote));
+
+
     return newNote;
   }
   
@@ -34,14 +57,14 @@ class Note {
 
 class App {
   constructor() {
-    //console.log("👊🏼 The Constructor!");
+    console.log("👊🏼 The Constructor!");
     
     // HINT🤩
     // clicking the button should work
     // pressing the enter key should also work
     // this.btnAdd = ???
     this.btnAdd = document.querySelector("#btnAddNote")
-    this.btnAdd = 
+    //this.btnAdd = 
       
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
     // this.loadNotesFromStorage();
@@ -53,19 +76,20 @@ class App {
     // something like note.add() in a loop would be nice
   }
   
-  createNote(e){
+  createNote(e){  // STAP 1 
     // this function should create a new note by using the Note() class
-    let newNote = new Note(document.querySelector("#txtAddNote"));
+    let newNote = new Note(document.querySelector("#txtAddNote").value);
     let note = new Note(newNote);
+    console.log(newNote);
     
     //console.log("klik"); // er wordt op de knop geklikt
-    console.log(`klik ${this.newNote}`);
+    console.log(`klik ${this.note}`);
 
     
     // HINT🤩
-    /*note.add();
+    note.add();
     note.saveToStorage();
-    this.reset();*/
+    this.reset();
   }
   
   reset(){
