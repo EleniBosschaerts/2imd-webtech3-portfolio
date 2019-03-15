@@ -34,11 +34,11 @@ class Weather {
         .then(json => {
             let temp = document.createElement("h1");
             temp.innerHTML = json.currently.temperature;
-            document.querySelector("body").appendChild(temp);
+            document.querySelector("div#inputAPI__temp").appendChild(temp);
 
-            let summary = document.createElement("p");
+            let summary = document.createElement("div");
             summary.innerHTML = json.currently.summary;
-            document.querySelector("body").appendChild(summary);
+            document.querySelector("div#inputAPI__sum").appendChild(summary);
 
             var icon = document.getElementById("iconWeather");
             icon.classList.add(json.currently.icon);
@@ -49,7 +49,7 @@ class Weather {
 */
             //console.log(json); 
             // KAN OOK
-            console.log(json.currently.summery); 
+            console.log(json.currently.summary); 
             console.log(json.currently.temperature); 
         })
     }

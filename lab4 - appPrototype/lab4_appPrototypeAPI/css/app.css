@@ -1,4 +1,71 @@
-body{
+/*icons from https://www.iconfinder.com/iconsets/weather-color-2
+*/
+body {
     font-family: Helvetica, sans-serif;
+    /*text-align:center;*/
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+    font-size: 0.8em;
+    color: lightgray;
+}
+h1, h2, p{
+    margin: 0;
+    padding: 0;
+}
+.app > div{
+    padding: 5%;
+    color: red;
+}
+
+.contain {
+    background-image: url(../watch.png);
+   
+    background-clip: padding-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 1fr [app] minmax(100px, 250px) 1fr;
+    grid-template-rows: 1fr [app] 0.3fr [movie] 0.3fr 1fr;
+    justify-content: center;
+    align-items: center;
     
+    /*
+    background-size: cover;*/
+    height: 100vh;
+}
+
+#app {
+    /*
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    align-content: center;
+*/
+    /* display: grid;
+    width: 50%;
+    height: 30vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;*/
+
+    grid-column: app;
+    grid-row: app;
+    padding: 1em;
+    border: 2px solid lightblue;
+}
+#movie{
+    grid-column: app;
+    grid-row: movie;    padding: 1em;
+}
+div#iconWeather {
+    background-image: url(https://via.placeholder.com/150);
+    min-height: 20px;
+    background-size: cover;
+    /*background-image: url(https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-01-512.png);
+    background-size: 100%;*/
+    background-repeat: no-repeat;
+    border: 2px solid red;
 }
