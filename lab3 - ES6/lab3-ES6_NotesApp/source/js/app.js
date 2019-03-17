@@ -26,14 +26,15 @@ class Note {
     newNote.appendChild(a);
     // HINT🤩 
     a.addEventListener('click', this.remove.bind(newNote));
-    
+
     return newNote;
   }
   
-  add(){
+  add(noteElement){
     // HINT🤩
     // this function should append the note to the screen somehow
-    
+    let notes = document.querySelector('#notes');
+    notes.appendChild(noteElement);
   }
   
   saveToStorage(){
