@@ -2,7 +2,6 @@ class Note {
   titel = "Hello";
   constructor(title) {
     this.title = title;
-    // HINT🤩 
     this.element = this.createElement(title);
   }
   createElement(title){
@@ -12,28 +11,22 @@ class Note {
 
     // p element
     let newTitle = document.createElement('p');
+
     // text in innerHTML p
-    
     newTitle.innerHTML = `${title}`;
-    
-    console.log(this.titel);
+    console.log(this.titel); //TEST
 
     // make link 
-    let removeLink = document.createElement('a');
-    removeLink.setAttribute("href", "#");
-    removeLink.setAttribute("class", "card-remove");
-    removeLink.innerHTML = "Remove";
+    let a = document.createElement('a');
+    a.setAttribute("href", "#");
+    a.setAttribute("class", "card-remove");
+    a.innerHTML = "Remove";
     // append p and link to div.card
     newNote.appendChild(newTitle);
-    newNote.appendChild(removeLink);
+    newNote.appendChild(a);
     // HINT🤩 
-    removeLink.addEventListener('click', this.remove.bind(newNote));
-
-    // HINT🤩 
-    //a.addEventListener('click', this.remove.bind(newNote));
-    //removeLink.addEventListener('click', this.remove.bind(newNote));
-
-
+    a.addEventListener('click', this.remove.bind(newNote));
+    
     return newNote;
   }
   
