@@ -1,5 +1,4 @@
 class Note {
-  titel = "Hello";
   constructor(title) {
     this.title = title;
     this.element = this.createElement(title);
@@ -64,8 +63,7 @@ class App {
         this.createNote();
       }
     });
- 
-    // this.loadNotesFromStorage();
+    this.loadNotesFromStorage();
   }
   
   loadNotesFromStorage() {
@@ -74,7 +72,7 @@ class App {
     // something like note.add() in a loop would be nice
   }
   
-  createNote(e){  // STAP 1 
+  createNote(e){  
     // this function should create a new note by using the Note() class
     let newNote = new Note(document.querySelector("#txtAddNote").value);
     let note = new Note(newNote);
@@ -83,18 +81,16 @@ class App {
     //console.log("klik"); // er wordt op de knop geklikt
     console.log(`klik ${this.note}`);
 
-    
     // HINT🤩
-    note.add();
+    note.add(note.noteElement);
     note.saveToStorage();
     this.reset();
   }
   
   reset(){
     // this function should reset the form 
-
+    document.querySelector("txtAddNote").value = "";
   }
-  
 }
 
 let app = new App();
