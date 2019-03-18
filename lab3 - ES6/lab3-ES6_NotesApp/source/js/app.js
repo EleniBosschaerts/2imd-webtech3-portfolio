@@ -4,35 +4,35 @@ class Note {
     this.element = this.createElement(title);
   }
   createElement(title){
-    // class - div
-    let newNote = document.createElement('div');
-    newNote.setAttribute("class", "card");
+    let notes = document.getElementById('notes');
+    // MAAK class - div
+    let note = document.createElement('div');
+    note.innerHTML = `<p>${this.title}</p><br><a href="#" class="card-remove">Remove</a>`;
+    note.setAttribute("class", "card");
 
     // p element
     let newTitle = document.createElement('p');
-
     // text in innerHTML p
-    newTitle.innerHTML = `${title}`;
+    newTitle.innerHTML = this.title;
+    //newTitle.innerHTML = `${title}`;
     console.log(this.titel); //TEST
+    note.appendChild(newTitle);
 
     // make link 
     let a = document.createElement('a');
-    a.setAttribute("href", "#");
     a.setAttribute("class", "card-remove");
     a.innerHTML = "Remove";
-    // append p and link to div.card
-    newNote.appendChild(newTitle);
-    newNote.appendChild(a);
-    // HINT🤩 
-    a.addEventListener('click', this.remove.bind(newNote));
+    // append p 
+    note.appendChild(a);
+    a.addEventListener('click', this.remove.bind(note));
 
-    return newNote;
+    return note;
   }
   
   add(noteElement){
     // HINT🤩
     // this function should append the note to the screen somehow
-    let notes = document.querySelector('#notes');
+    let notes = document.querySelector('.notes');
     notes.appendChild(noteElement);
   }
   
@@ -40,13 +40,16 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    let arr = [];
+    
+    
+    /*let arr = [];
       if(localStorage.length > 0){
         arr = JSON.parse(localStorage.getItem("nodes"));
       }
-      arr.push(title);
-  
-      localStorage.setItem("nodes", JSON.stringify(arr));
+    arr.push(title);
+  */
+ 
+    localStorage.setItem("nodes", JSON.stringify(arr));
   }
   
   remove(){
@@ -54,7 +57,13 @@ class Note {
     // in this function, 'this' will refer to the current note element
     setTimeout( ()=>{
       this.parentNode.removeChild(this);
+      this.parentNode.style.display = "none";
     }, 1000);
+
+    let arr = [];
+    arr = JSON.parse(localStorage.getItem("nodes"));
+    arr.splice(arr.indexOf(this), 1);
+    localStorage.setItem("nodes", JSON.stringify(arr));
   } 
 }
 
@@ -69,8 +78,9 @@ class App {
     // pressing the enter key should also work
     this.txtAdd = document.querySelector("#txtAddNote");
     this.txtAdd.addEventListener("keydown", event => {
-      if(event.keyCode = 13){
+      if(event.keyCode === 13){
         this.createNote();
+        console.log("Dit werkt - druk op enter of de knop");
       }
     });
     this.loadNotesFromStorage();
@@ -93,9 +103,9 @@ class App {
   
   createNote(e){  
     // this function should create a new note by using the Note() class
-    let newNote = new Note(document.querySelector("#txtAddNote").value);
-    let note = new Note(newNote);
-    console.log(newNote);
+    let note = new Note(document.querySelector("#txtAddNote").value);
+    let note = new Note(note);
+    console.log(note);
     
     //console.log("klik"); // er wordt op de knop geklikt
     console.log(`klik ${this.note}`);
