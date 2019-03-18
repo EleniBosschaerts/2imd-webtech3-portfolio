@@ -40,11 +40,21 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+    let arr = [];
+      if(localStorage.length > 0){
+        arr = JSON.parse(localStorage.getItem("nodes"));
+      }
+      arr.push(title);
+  
+      localStorage.setItem("nodes", JSON.stringify(arr));
   }
   
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+    setTimeout( ()=>{
+      this.parentNode.removeChild(this);
+    }, 1000);
   } 
 }
 
@@ -70,6 +80,15 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
+    if(localStorage.length > 0){
+      let arr = [];
+      arr = JSON.parse(localStorage.getItem("nodes"));
+      console.log(arr);
+      for(let i = 0; i < arr.length; i++){
+        let note = new Note(arr[i]);
+        note.add(note.element);
+      }
+    }
   }
   
   createNote(e){  
