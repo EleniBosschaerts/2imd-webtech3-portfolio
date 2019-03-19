@@ -2,6 +2,7 @@ class Note {
   constructor(title) {
     this.title = title;
     this.element = this.createElement(title);
+    console.log(this.titel); //TEST
   }
   createElement(title){
     let notes = document.getElementById('notes');
@@ -29,11 +30,11 @@ class Note {
     return note;
   }
   
-  add(noteElement){
+  add(){ //note.element
     // HINT🤩
     // this function should append the note to the screen somehow
     let notes = document.querySelector('.notes');
-    notes.appendChild(noteElement);
+    notes.appendChild(this.element);
   }
   
   saveToStorage(){
@@ -41,15 +42,23 @@ class Note {
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
     
+    let data = JSON.parse(localStorage.getItem('keyNoteTitel'));
+    if (data == null) {
+      data = [];
+    }
+    data.push(this.title);
+    localStorage.setItem('keyNoteTitel', JSON.stringify(data));
+    // localStorage.setItem(tabelKolom, data er in); 
+    
     
     /*let arr = [];
-      if(localStorage.length > 0){
+    if(localStorage.length > 0){
         arr = JSON.parse(localStorage.getItem("nodes"));
-      }
+    }
     arr.push(title);
-  */
- 
+
     localStorage.setItem("nodes", JSON.stringify(arr));
+    */
   }
   
   remove(){
@@ -104,14 +113,14 @@ class App {
   createNote(e){  
     // this function should create a new note by using the Note() class
     let note = new Note(document.querySelector("#txtAddNote").value);
-    let note = new Note(note);
+    //let note = new Note(note);
     console.log(note);
     
     //console.log("klik"); // er wordt op de knop geklikt
     console.log(`klik ${this.note}`);
 
     // HINT🤩
-    note.add(note.noteElement);
+    note.add(); //(note.element)
     note.saveToStorage();
     this.reset();
   }
