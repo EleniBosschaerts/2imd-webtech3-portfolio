@@ -10,9 +10,14 @@ class Note {
     newNote.innerHTML = `<p>${this.title}</p><br><a href="#" class="card-remove">Remove</a>`;
     newNote.setAttribute("class", "card");
 
-    // link 
-    let a = document.getElementsByTagName('a');
-    a.addEventListener('click', this.remove.bind(newNote));
+   // promise toegevoegd - remove klik
+   new Promise( (resolve, reject) => {
+    setTimeout( () => {
+      let a = document.getElementsByTagName("a");
+      a[i].addEventListener('click', this.remove.bind(newNote));
+      i++;
+    }, 500 );
+  });
 
     return newNote;
   }
