@@ -115,13 +115,6 @@ class Movie {
             //poster_path.innerHTML = json.results[randomNr].poster_path;
             //document.querySelector("div#inputAPI__movieImg").appendChild(poster_path);
             */
-/*
-            let id = document.createElement("p");
-            id.innerHTML = json.results[randomNr].id;
-            //let id = json.results[randomNr].id;
-            document.querySelector("div#inputAPI__movie").appendChild(id);
-            console.log(id); 
-*/
         })
         .catch(err => {
 			console.log("err Movie");
@@ -135,6 +128,7 @@ class Movie {
         let genreName;
        
         console.log(genreByWeather);console.log("genreByWeather 🔆");
+        // ELK weer heeft zijn film 
         if(genreByWeather == "partly-cloudy-night"){
             genre = 18;    // we kijken vandaag drama films
             genreName = drama;
