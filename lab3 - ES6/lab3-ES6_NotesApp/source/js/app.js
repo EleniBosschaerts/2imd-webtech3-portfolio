@@ -34,7 +34,6 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    
     let arrStorage = [];
 
     if (localStorage.length > 0) {
@@ -46,6 +45,9 @@ class Note {
       arrStorage[0] = noteText;
     }
 
+    let content = document.getElementById('txtAddNote').value;
+    arrStorage.push(content);
+   
     localStorage.setItem("nodes", JSON.stringify(arrStorage));
   }
   
@@ -78,7 +80,6 @@ class App {
 
     this.loadNotesFromStorage();
   }
-  
   
   loadNotesFromStorage() {
     // HINT🤩
