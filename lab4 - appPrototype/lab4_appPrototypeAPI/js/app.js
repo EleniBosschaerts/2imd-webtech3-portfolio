@@ -3,13 +3,9 @@ class Weather {
         this.API_KEY = API_KEY; // API key maken 
         this.initialize();
     }
-
-    // functies 
     initialize() {
         this.getMyLocation();
-        //console.log(navigator); // eens kijken wat er in zit
     }
-    
     getMyLocation() {
         console.log("getMyLocation 📡");
         //ES6 oud=function(position) //2functies met 1 parameter vb. position
@@ -24,7 +20,7 @@ class Weather {
     }
 
     getWeather(lat, lng){
-        console.log("getWeather ☀️🌤🌧");
+        console.log("getWeather 🌤🌧");
         let url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${this.API_KEY}/${lat},${lng}?units=si`;
         fetch(url)
         .then(response => {
@@ -93,7 +89,11 @@ class Movie {
     // film kiezen obv weer & genres 
     getMovie(){
         console.log("found you a great Movie - getMovie 🎞");
-        let genre = getGenresByWeather(genre);
+        //let genre = 37;
+        this.getGenresByWeather(genre);   
+        let genre = this.getGenresByWeather(genre);
+
+        console.log(genre);
         let url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.API_KEY}&with_genres=${genre}&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&original_language=en`;
         fetch(url, {
             method: 'get'
