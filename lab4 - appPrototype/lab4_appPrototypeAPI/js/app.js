@@ -91,7 +91,8 @@ class Movie {
         console.log("found you a great Movie - getMovie 🎞");
         //let genre = 37;
         this.getGenresByWeather(genre);   
-        let genre = this.getGenresByWeather(genre);
+        //let genre = this.getGenresByWeather(genre);
+       
 
         console.log(genre);
         let url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.API_KEY}&with_genres=${genre}&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&original_language=en`;
@@ -124,10 +125,13 @@ class Movie {
 
     getGenresByWeather(genre){
         this.icon = genreByWeather;
-        let genre = 37; // default genre
+        this.genre = 37; // default genre
         let genreName;
+
+        console.log(genre);
        
-        console.log(genreByWeather);console.log("genreByWeather 🔆");
+        console.log(genreByWeather);
+        console.log("genreByWeather 🔆");
         // ELK weer heeft zijn film 
         if(genreByWeather == "partly-cloudy-night"){
             genre = 18;    // we kijken vandaag drama films
@@ -170,6 +174,7 @@ class Movie {
 // random film kiezen uit beste dramas
 let randomNr = Math.floor((Math.random() * 20) + 1);
 //console.log(randomNr); 
+let genre;
 
 
 //MOVIES key 	f22e56356483a7693d49e6d08c4624fa
