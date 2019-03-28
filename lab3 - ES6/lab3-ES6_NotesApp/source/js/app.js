@@ -17,7 +17,8 @@ class Note {
     new Promise((resolve, reject) => {
       setTimeout(() => {
         let a = document.getElementsByTagName("a");
-        a[i].addEventListener('click', this.remove.bind(newNote));
+        a[i].addEventListener('click', this.remove.bind(newNote)); 
+        a[i].addEventListener('click', this.removeLocalStorage.bind(title));
         i++;
       }, 500);
     });
@@ -52,9 +53,19 @@ class Note {
   remove() {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note createElement
+    // remove of sceen
     setTimeout(() => {
       this.style.display = "none";
     }, 1000);
+  }
+
+  removeLocalStorage(titel) {
+    // remove from localStorage
+    let arrStorage = JSON.parse(localStorage.getItem("notes"));
+    let clicked = arrStorage.indexOf(this);
+    arrStorage.splice(clicked, 1);
+    localStorage.setItem('notes', JSON.stringify(arrStorage));
+    // localStorage.removeItem('notes'); // removes all
   }
 }
 
