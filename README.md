@@ -33,7 +33,10 @@ Files [Lab3 - ES6 NotesApp](https://github.com/EleniBosschaerts/2imd-webtech3-po
 
 ## [Lab 4 - API App Protoype](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/tree/master/lab4%20-%20)
 
-tbc
+## Prototype Weather App
+Link to Codepen [Lab4 - appPrototype](https://codepen.io/Eleni_1/pen/eXqEEj)
+
+Files [Lab4 - appPrototype](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/tree/master/lab4%20-%20appPrototype/lab4_appPrototypeAPI)
 
 ## [Lab 5 - Node.js](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/tree/master/lab5%20-%20)
 
