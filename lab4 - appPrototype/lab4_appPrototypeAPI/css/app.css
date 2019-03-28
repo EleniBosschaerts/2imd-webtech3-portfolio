@@ -1,5 +1,4 @@
-/*icons from https://www.iconfinder.com/iconsets/weather-color-2
-*/
+
 body {
     font-family: Helvetica, sans-serif;
     /*text-align:center;*/
@@ -34,6 +33,7 @@ h1, h2, p{
     /*
     background-size: cover;*/
     height: 100vh;
+    border: 2px solid lightblue;
 }
 
 #app {
@@ -49,12 +49,11 @@ h1, h2, p{
     width: 50%;
     height: 30vh;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;*/
+    grid-template-rows: 1fr 1fr 1fr 1fr; */
 
     grid-column: app;
     grid-row: app;
     padding: 1em;
-    border: 2px solid lightblue;
 }
 #movie{
     grid-column: app;
@@ -67,5 +66,8 @@ div#iconWeather {
     /*background-image: url(https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-01-512.png);
     background-size: 100%;*/
     background-repeat: no-repeat;
-    border: 2px solid red;
+    /*border: 2px solid red;*/
 }
+
+
+/*icons from https://www.iconfinder.com/iconsets/weather-color-2*/

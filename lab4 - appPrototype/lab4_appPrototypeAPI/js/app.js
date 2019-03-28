@@ -127,7 +127,7 @@ class Movie {
 
         let nameClassGenre = document.getElementById('inputAPI__movie');
         let genreByWeather = nameClassGenre.getAttribute("class");
-        console.log("genreByWeather: ");console.log(genreByWeather);
+        console.log("genreByWeather: " + genreByWeather);
 
         //let genreByWeather = "partly-cloudy-night";  // FAKE weather to test - komt uit: json.currently.icon;
 
@@ -170,7 +170,7 @@ class Movie {
     }
 }
 
-// vb. random film kiezen uit beste dramas
+// vb. random film kiezen uit beste 'dramas'
 let randomNr = Math.floor((Math.random() * 20) + 1);
 //console.log(randomNr); 
 
