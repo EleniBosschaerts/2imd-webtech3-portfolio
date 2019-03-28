@@ -1,127 +1,110 @@
+/// EXTRA DEEL MOVIES - film aanbevelingen obv het weer 
 class Movie {
-    constructor(API_KEY) {      // hier komt API key binnen 
+    constructor(API_KEY, icon) { // hier komt API key binnen 
         this.API_KEY = API_KEY; // API key maken 
+        this.icon = icon;
         this.initialize();
     }
 
     // functies 
     initialize() {
-        this.getPosterMovie();
+        this.getMovie();
     }
-    
-    getPosterMovie() {
-        console.log("😄 getPosterMovie");
-        let genres = 18
-        let url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.API_KEY}&with_genres=${genres}&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&original_language=en`;
+
+    // film kiezen obv weer & genres 
+    getMovie() {
+        console.log("found you a great Movie - getMovie 🎞");
+        let genre = this.getGenresByWeather();
+
+        console.log(genre);
+        let url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.API_KEY}&with_genres=${genre}&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&original_language=en`;
         fetch(url, {
-            method: 'get'
-        }).then(response => {
-            return response.json();  // Json geeft promis terug 
-        })
-        .then(json => {
-            let title = document.createElement("h1");
-            title.innerHTML = json.results.title;
-            document.querySelector("div#inputAPI__movie").appendChild(title);
+                method: 'get'
+            }).then(response => {
+                return response.json(); // Json geeft promis terug 
+            })
+            .then(json => {
+                console.log("great Movie 🎞");
+                let title = document.createElement("h1");
+                title.innerHTML = json.results[randomNr].title;
+                document.querySelector("div#inputAPI__movie").appendChild(title);
+                console.log(json.results[randomNr].title);
 
+                /* // EXTRA POSTER // 
+                let poster_path = json.results[randomNr].poster_path;
+                let moviePoster = document.querySelector("img");
+                moviePoster.setAttribute("style", `background-image: url(https://image.tmdb.org/t/p/w500${poster_path});`);
+                console.log(json.results[randomNr].poster_path); 
+                //poster_path.innerHTML = json.results[randomNr].poster_path;
+                //document.querySelector("div#inputAPI__movieImg").appendChild(poster_path);
+                */
+            })
+            .catch(err => {
+                console.log("err Movie");
+            });
 
-            /*
-            let temp = document.createElement("h1");
-            temp.innerHTML = json.currently.temperature;
-            document.querySelector("div#inputAPI__temp").appendChild(temp);
-            */
-
-        
-            console.log(json); 
-            // KAN OOK
-            console.log(json.results.id); 
-        })
-        .catch(err => {
-			console.log("err");
-		});
-
-        //ES6 oud=function(position) //2functies met 1 parameter vb. position
-
-        /*navigator.geolocation.getCurrentPosition(position => {
-            console.log("found you");
-            let lat = position.coords.latitude;
-            let lng = position.coords.longitude;
-            this.getMovie(lat, lng);  // verwijzig naar de functie 
-        }, error => {
-            console.log("err");
-        });
-        */
     }
 
-    
-    /*
-    getPosterMovie() {
-        console.log("😄 getPosterMovie");
-        //ES6 oud=function(position) //2functies met 1 parameter vb. position
-        navigator.geolocation.getCurrentPosition(position => {
-            console.log("found you");
-            let lat = position.coords.latitude;
-            let lng = position.coords.longitude;
-            this.getMovie(lat, lng);  // verwijzig naar de functie 
-        }, error => {
-            console.log("err");
-        });
-    }*/
+    getGenresByWeather() { // (genre)
+        // this.icon = genreByWeather; // $$ HOE ICON UIT ANDERE CLASS KRIJGEN ? 
 
+        let nameClassGenre = document.getElementById('inputAPI__movie');
+        let genreByWeather = nameClassGenre.getAttribute("class");
+        console.log("genreByWeather: " + genreByWeather);
 
-    getMovie(lat,lng){
-        //AJAX / Javascript And XML > we’ll use JSON
-        // fetch met promise (geen call backs meer gebruiken)
-        let url = `https://api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&api_key=${this.API_KEY}`;
-        fetch(url)
-        .then(response => {
-            return response.json();  // Json geeft promis terug 
-        })
-        .then(json => {
-            let title = document.createElement("h1");
-            title.innerHTML = json.results.title;
-            document.querySelector("body").appendChild(title);
+        //let genreByWeather = "partly-cloudy-night";  // FAKE weather to test - komt uit: json.currently.icon;
 
-            /*let img = document.createElement("img");
-            img.innerHTML = json.currently.icon;
-            document.querySelector("body").appendChild(img);
-            */
-            //console.log(json); 
-            // KAN OOK
-            console.log(json.results.id); 
-        })
+        let genre, genreName;
+
+        // ELK weer heeft zijn film 
+        if (genreByWeather == "partly-cloudy-night") {
+            genre = 18; // we kijken vandaag drama films
+            genreName = "drama";
+        } else if (genreByWeather == "clear-day") {
+            genre = 35; // Comedy
+            genreName = "Comedy";
+        } else if (genreByWeather == "clear-night") {
+            genre = 10749; // Romance
+        } else if (genreByWeather == "cloudy") {
+            genre = 878; // Science Fiction
+        } else if (genreByWeather == "rain") {
+            genre = 12; // Adventure
+        } else if (genreByWeather == "snow") {
+            genre = 14; // Fantasy
+        } else if (genreByWeather == "sleet") {
+            genre = 28; // Action
+        } else if (genreByWeather == "wind") {
+            genre = 99; // Documentary
+        } else if (genreByWeather == "fog") {
+            genre = 9648; // Mystery
+        } else if (genreByWeather == "partly-cloudy-day") {
+            genre = 10751; // Family
+        } else if (genreByWeather == "hail") {
+            genre = 10752; // War
+        } else if (genreByWeather == "thunderstorm") {
+            genre = 27; // Horror
+        } else if (genreByWeather == "tornado") {
+            genre = 53; // Thriller
+        } else {
+            genre = 37; // no right genre found // THAN WATCH  Western Movies = default genre
+        }
+        console.log(genre);
+        return genre;
     }
 }
 
+// vb. random film kiezen uit beste 'dramas'
+let randomNr = Math.floor((Math.random() * 20) + 1);
+//console.log(randomNr); 
+
+//let app = new Weather('6c3b8db6135474ece1ae300558aec8d3');
 let appPoster = new Movie('f22e56356483a7693d49e6d08c4624fa');
 
-/*
-getPoster(){
-}
-*/
-
-//MOVIES key 	f22e56356483a7693d49e6d08c4624fa
-https://api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&api_key=f22e56356483a7693d49e6d08c4624fa
-
-https://api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&api_key=${this.API_KEY}
-
-/*
-let settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&api_key=f22e56356483a7693d49e6d08c4624fa&original_language=en&genre_ids=18",
-  "method": "GET",
-  "headers": {
-    "cache-control": "no-cache",
-    "Postman-Token": "8ff46dbe-e642-4f1f-9be2-6a900e9cc6da"
-  }
-}
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
-*/
-        
-
-//let key WEER = "6c3b8db6135474ece1ae300558aec8d3"; //^of hierboven mee geven // API KEY MAG eig niet zichtbaar 
+//let key = "6c3b8db6135474ece1ae300558aec8d3"; //^of hierboven mee geven // API KEY MAG eig niet zichtbaar 
 //URL https://api.darksky.net/forecast/6c3b8db6135474ece1ae300558aec8d3/37.8267,-122.4233        
 //KEY 6c3b8db6135474ece1ae300558aec8d3
+
+//MOVIES key 	f22e56356483a7693d49e6d08c4624fa
+//api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&api_key=f22e56356483a7693d49e6d08c4624fa
+//api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&api_key=${this.API_KEY}
+// IMG https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg   

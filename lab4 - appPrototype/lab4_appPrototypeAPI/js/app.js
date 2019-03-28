@@ -1,5 +1,5 @@
 class Weather {
-    constructor(API_KEY) {      // hier komt API key binnen 
+    constructor(API_KEY) { // hier komt API key binnen 
         this.API_KEY = API_KEY; // API key maken 
         this.initialize();
     }
@@ -13,52 +13,52 @@ class Weather {
             //console.log("found you");
             let lat = position.coords.latitude;
             let lng = position.coords.longitude;
-            this.getWeather(lat, lng);  // verwijzig naar de functie 
+            this.getWeather(lat, lng); // verwijzig naar de functie 
         }, error => {
             console.log("err");
         });
     }
 
-    getWeather(lat, lng){
+    getWeather(lat, lng) {
         console.log("getWeather 🌤🌧");
         let url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${this.API_KEY}/${lat},${lng}?units=si`;
         fetch(url)
-        .then(response => {
-            return response.json();  // Json geeft promis terug 
-        })
-        .then(json => {
-            let temp = document.createElement("h1");
-            temp.innerHTML = json.currently.temperature;
-            document.querySelector("div#inputAPI__temp").appendChild(temp);
-            console.log(json.currently.temperature); 
+            .then(response => {
+                return response.json(); // Json geeft promis terug 
+            })
+            .then(json => {
+                let temp = document.createElement("h1");
+                temp.innerHTML = json.currently.temperature;
+                document.querySelector("div#inputAPI__temp").appendChild(temp);
+                console.log(json.currently.temperature);
 
-            let summary = document.createElement("div");
-            summary.innerHTML = json.currently.summary;
-            document.querySelector("div#inputAPI__sum").appendChild(summary);
-            console.log(json.currently.summary);
+                let summary = document.createElement("div");
+                summary.innerHTML = json.currently.summary;
+                document.querySelector("div#inputAPI__sum").appendChild(summary);
+                console.log(json.currently.summary);
 
-            // BINNEN of BUITEN element uitvoeren ?
-            let icon = json.currently.icon; // nodig in getGenresByWeather
-            var movieTitel = document.getElementById("inputAPI__movie");
-            movieTitel.classList.add(icon);
-            console.log(icon); 
+                // BINNEN of BUITEN element uitvoeren ?
+                let icon = json.currently.icon; // nodig in getGenresByWeather
+                var movieTitel = document.getElementById("inputAPI__movie");
+                movieTitel.classList.add(icon);
+                console.log(icon);
 
 
 
-            // FOUT ? kan geen new movie hier beginnen //  new Movie('f22e56356483a7693d49e6d08c4624fa', icon);
-            
-            //*1 = BUITEN element uitvoeren/ this.getWeaterIcon(json);
+                // FOUT ? kan geen new movie hier beginnen //  new Movie('f22e56356483a7693d49e6d08c4624fa', icon);
 
-            /* extra weer icoon
-            let icon = document.getElementById("iconWeather");
-            icon.classList.add(json.currently.icon);
-            */
-        })
-        .catch(err => {
-			console.log("err Weather");
-		});
-        
-    //return this.icon;
+                //*1 = BUITEN element uitvoeren/ this.getWeaterIcon(json);
+
+                /* extra weer icoon
+                let icon = document.getElementById("iconWeather");
+                icon.classList.add(json.currently.icon);
+                */
+            })
+            .catch(err => {
+                console.log("err Weather");
+            });
+
+        //return this.icon;
     }
 
     /*1 = BUITEN element uitvoeren/*
@@ -68,13 +68,15 @@ class Weather {
         new Movie('f22e56356483a7693d49e6d08c4624fa', icon);
     }
     */
-
-   //  get iconGetter() { return this.getWeather();    }
-
 }
 
+let app = new Weather('6c3b8db6135474ece1ae300558aec8d3');
+//let key = "6c3b8db6135474ece1ae300558aec8d3"; //^of hierboven mee geven // API KEY MAG eig niet zichtbaar 
+//URL https://api.darksky.net/forecast/6c3b8db6135474ece1ae300558aec8d3/37.8267,-122.4233        
+//KEY 6c3b8db6135474ece1ae300558aec8d3
 
 
+/*
 /// EXTRA DEEL MOVIES - film aanbevelingen obv het weer 
 class Movie {
     constructor(API_KEY, icon) {      // hier komt API key binnen 
@@ -114,7 +116,7 @@ class Movie {
             console.log(json.results[randomNr].poster_path); 
             //poster_path.innerHTML = json.results[randomNr].poster_path;
             //document.querySelector("div#inputAPI__movieImg").appendChild(poster_path);
-            */
+            * /
         })
         .catch(err => {
 			console.log("err Movie");
@@ -174,7 +176,7 @@ class Movie {
 let randomNr = Math.floor((Math.random() * 20) + 1);
 //console.log(randomNr); 
 
-let app = new Weather('6c3b8db6135474ece1ae300558aec8d3');
+
 let appPoster = new Movie('f22e56356483a7693d49e6d08c4624fa');
   
 //let key = "6c3b8db6135474ece1ae300558aec8d3"; //^of hierboven mee geven // API KEY MAG eig niet zichtbaar 
@@ -185,3 +187,4 @@ let appPoster = new Movie('f22e56356483a7693d49e6d08c4624fa');
 //api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&api_key=f22e56356483a7693d49e6d08c4624fa
 //api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&api_key=${this.API_KEY}
 // IMG https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg   
+*/
