@@ -1,4 +1,5 @@
 let i = 0;
+let notes; // keyName of //storage.setItem(keyName, keyValue); 
 class Note {
   constructor(title) {
     this.title = title;
@@ -30,25 +31,22 @@ class Note {
     document.querySelector(".notes").appendChild(element);
   }
 
-  saveToStorage(noteText) {
-    // HINT🤩
-    // localStorage only supports strings, not arrays
+  saveToStorage() {
+    // HINT🤩     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    let arrStorage = [];
+    let arrStorage = JSON.parse(localStorage.getItem("notes")); //= loadNotes
 
-    if (localStorage.length > 0) {
-      arrStorage = JSON.parse(localStorage.getItem("nodes")); //= loadNotes
+    if (arrStorage == null) {
+      arrStorage = [];
+    } 
+    arrStorage.push(this.title); 
+    //KORT 
+    localStorage.setItem('notes', JSON.stringify(arrStorage));
 
-      const arrCount = arrStorage.length;
-      arrStorage[arrCount] = noteText;
-    } else {
-      arrStorage[0] = noteText;
-    }
-
-    let content = document.getElementById('txtAddNote').value;
-    arrStorage.push(content);
-
-    localStorage.setItem("nodes", JSON.stringify(arrStorage));
+    //LANG
+    //let keyValue = JSON.stringify(arrStorage); localStorage.setItem("notes", keyValue);
+    //storage.setItem(keyName, keyValue); 
+    // FOUT: A DOMString containing the value of the key. If the key does not exist, null is returned.
   }
 
   remove() {
@@ -85,24 +83,22 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
-    let loadNotes = JSON.parse(localStorage.getItem("nodes"));
+  
+    let loadNotes = JSON.parse(localStorage.getItem('notes'));
+    //var aValue = storage.getItem(keyName);
+
+    let notes = "";
     console.log(loadNotes); // als leeg is null // (2) [null, "hi"]
     if (loadNotes != null) {
-      if (loadNotes.length > 0) {
+      if (loadNotes.length > 0) {  // LEGE ARRAY
         loadNotes.forEach(notes => {
           let note = new Note(notes);
-          note.add(note.element);
+          note.add(note.element); // HIER WORDT NULL GEMAAKT 
         });
       }
     }
-    /* FOUT
-    if (loadNotes.length > 0) {
-      loadNotes.forEach(notes => {
-        let note = new Note(notes);
-        note.add(note.element);
-      });
-    }
-    */
+    console.log(notes);
+
   }
 
   createNote() {
