@@ -97,12 +97,8 @@ class Movie {
 let randomNr = Math.floor((Math.random() * 20) + 1);
 //console.log(randomNr); 
 
-//let app = new Weather('6c3b8db6135474ece1ae300558aec8d3');
 let appPoster = new Movie('f22e56356483a7693d49e6d08c4624fa');
 
-//let key = "6c3b8db6135474ece1ae300558aec8d3"; //^of hierboven mee geven // API KEY MAG eig niet zichtbaar 
-//URL https://api.darksky.net/forecast/6c3b8db6135474ece1ae300558aec8d3/37.8267,-122.4233        
-//KEY 6c3b8db6135474ece1ae300558aec8d3
 
 //MOVIES key 	f22e56356483a7693d49e6d08c4624fa
 //api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&api_key=f22e56356483a7693d49e6d08c4624fa
