@@ -1,5 +1,5 @@
 let i = 0;
-let notes; // keyName of //storage.setItem(keyName, keyValue); 
+//let notes; // keyName of //storage.setItem(keyName, keyValue); 
 class Note {
   constructor(title) {
     this.title = title;
@@ -52,7 +52,6 @@ class Note {
   remove() {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note createElement
-
     setTimeout(() => {
       this.style.display = "none";
     }, 1000);
@@ -85,7 +84,6 @@ class App {
     // something like note.add() in a loop would be nice
   
     let loadNotes = JSON.parse(localStorage.getItem('notes'));
-    //var aValue = storage.getItem(keyName);
 
     let notes = "";
     console.log(loadNotes); // als leeg is null // (2) [null, "hi"]
@@ -93,12 +91,11 @@ class App {
       if (loadNotes.length > 0) {  // LEGE ARRAY
         loadNotes.forEach(notes => {
           let note = new Note(notes);
-          note.add(note.element); // HIER WORDT NULL GEMAAKT 
+          note.add(note.element); // HIER WERD NULL GEMAAKT 
         });
       }
     }
-    console.log(notes);
-
+    // console.log(notes); TEST
   }
 
   createNote() {
