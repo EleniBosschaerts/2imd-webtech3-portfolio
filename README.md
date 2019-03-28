@@ -18,7 +18,24 @@ Link to Codepen [Lab2_Flexbox_imdstagram](https://codepen.io/Eleni_1/pen/OqMxWz)
 
 Files [Lab2_Flexbox_imdstagram_FILES](https://github.com/Leni1803/2imd-webtech3-portfolio/tree/master/lab2%20-%20grid/Lab2_IMDstagram_Flexbox)
 
+## flexboxfroggy & cssgridgarden 
 
-## [Lab 3 - ES6]()
+![alt text](https://github.com/Leni1803/2imd-webtech3-portfolio/blob/master/lab2%20-%20grid/1819_Webtech3_010319_GRID_FlexboxFroggy.png "FlexboxFroggy")
+
+![alt text](https://github.com/Leni1803/2imd-webtech3-portfolio/blob/master/lab2%20-%20grid/1819_Webtech3_010319_GRID_GridGarden.png "GridGarden")
+
+## [Lab 3 - ES6](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/tree/master/lab3%20-%20ES6)
+
+### Notes App
+Link to Codepen [Lab3 - ES6 NotesApp](https://codepen.io/Eleni_1/pen/Qovaja)
+
+Files [Lab3 - ES6 NotesApp](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/tree/master/lab3%20-%20ES6/lab3-ES6_NotesApp)
+
+## [Lab 4 - API App Protoype](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/tree/master/lab4%20-%20)
 
 tbc
+
+## [Lab 5 - Node.js](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/tree/master/lab5%20-%20)
+
+tbc
+
