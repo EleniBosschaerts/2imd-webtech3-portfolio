@@ -37,12 +37,17 @@ class Weather {
             document.querySelector("div#inputAPI__sum").appendChild(summary);
             console.log(json.currently.summary);
 
-            /* BUITEN element uitvoeren
+            // BINNEN of BUITEN element uitvoeren ?
             let icon = json.currently.icon; // nodig in getGenresByWeather
+            var movieTitel = document.getElementById("inputAPI__movie");
+            movieTitel.classList.add(icon);
             console.log(icon); 
-            new Movie('f22e56356483a7693d49e6d08c4624fa', icon);
-            */
-            this.getWeaterIcon(json);
+
+
+
+            // FOUT ? kan geen new movie hier beginnen //  new Movie('f22e56356483a7693d49e6d08c4624fa', icon);
+            
+            //*1 = BUITEN element uitvoeren/ this.getWeaterIcon(json);
 
             /* extra weer icoon
             let icon = document.getElementById("iconWeather");
@@ -55,25 +60,22 @@ class Weather {
         
     //return this.icon;
     }
+
+    /*1 = BUITEN element uitvoeren/*
     getWeaterIcon(json){
         let icon = json.currently.icon; // nodig in getGenresByWeather
         console.log(icon); 
         new Movie('f22e56356483a7693d49e6d08c4624fa', icon);
     }
+    */
 
    //  get iconGetter() { return this.getWeather();    }
 
 }
 
-let app = new Weather('6c3b8db6135474ece1ae300558aec8d3');
-//console.log(app.iconGetter);
-//console.log("test 🌈 ");
-  
-//let key = "6c3b8db6135474ece1ae300558aec8d3"; //^of hierboven mee geven // API KEY MAG eig niet zichtbaar 
-    //URL https://api.darksky.net/forecast/6c3b8db6135474ece1ae300558aec8d3/37.8267,-122.4233        
-    //KEY 6c3b8db6135474ece1ae300558aec8d3
 
-/// EXTRA DEEL MOVIES aanbevelingen obv het weer 
+
+/// EXTRA DEEL MOVIES - film aanbevelingen obv het weer 
 class Movie {
     constructor(API_KEY, icon) {      // hier komt API key binnen 
         this.API_KEY = API_KEY; // API key maken 
@@ -89,10 +91,7 @@ class Movie {
     // film kiezen obv weer & genres 
     getMovie(){
         console.log("found you a great Movie - getMovie 🎞");
-        //let genre = 37;
-        this.getGenresByWeather(genre);   
-        //let genre = this.getGenresByWeather(genre);
-       
+        let genre = this.getGenresByWeather();   
 
         console.log(genre);
         let url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.API_KEY}&with_genres=${genre}&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&original_language=en`;
@@ -123,22 +122,24 @@ class Movie {
         
     }
 
-    getGenresByWeather(genre){
-        this.icon = genreByWeather;
-        this.genre = 37; // default genre
-        let genreName;
+    getGenresByWeather(){ // (genre)
+        // this.icon = genreByWeather; // $$ HOE ICON UIT ANDERE CLASS KRIJGEN ? 
 
-        console.log(genre);
-       
-        console.log(genreByWeather);
-        console.log("genreByWeather 🔆");
+        let nameClassGenre = document.getElementById('inputAPI__movie');
+        let genreByWeather = nameClassGenre.getAttribute("class");
+        console.log("genreByWeather: ");console.log(genreByWeather);
+
+        //let genreByWeather = "partly-cloudy-night";  // FAKE weather to test - komt uit: json.currently.icon;
+
+        let genre, genreName;
+        
         // ELK weer heeft zijn film 
         if(genreByWeather == "partly-cloudy-night"){
             genre = 18;    // we kijken vandaag drama films
-            genreName = drama;
+            genreName = "drama";
         } else if(genreByWeather == "clear-day"){
             genre = 35;    // Comedy
-            genreName = Comedy;
+            genreName = "Comedy";
         } else if(genreByWeather == "clear-night"){
             genre = 10749;    // Romance
         } else if(genreByWeather == "cloudy"){
@@ -169,13 +170,16 @@ class Movie {
     }
 }
 
-//let appPoster = new Movie('f22e56356483a7693d49e6d08c4624fa');
-
-// random film kiezen uit beste dramas
+// vb. random film kiezen uit beste dramas
 let randomNr = Math.floor((Math.random() * 20) + 1);
 //console.log(randomNr); 
-let genre;
 
+let app = new Weather('6c3b8db6135474ece1ae300558aec8d3');
+let appPoster = new Movie('f22e56356483a7693d49e6d08c4624fa');
+  
+//let key = "6c3b8db6135474ece1ae300558aec8d3"; //^of hierboven mee geven // API KEY MAG eig niet zichtbaar 
+//URL https://api.darksky.net/forecast/6c3b8db6135474ece1ae300558aec8d3/37.8267,-122.4233        
+//KEY 6c3b8db6135474ece1ae300558aec8d3
 
 //MOVIES key 	f22e56356483a7693d49e6d08c4624fa
 //api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10&certification_country=US&api_key=f22e56356483a7693d49e6d08c4624fa
