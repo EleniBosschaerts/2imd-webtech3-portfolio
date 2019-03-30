@@ -9,6 +9,7 @@
   "author": "Eleni Bosschaerts",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.4",
     "nodemon": "^1.18.10"
   }
 }
