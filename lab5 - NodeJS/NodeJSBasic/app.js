@@ -6,23 +6,10 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/messagesdemo', {useNewUrlParser: true});
 
-var app = express();
-
-////////////////
-//import data from '.data/data.json';
-const data = require('exp.data/data.jsonress');
 const app = express();
-const port = 3000;
-
-app.get('/', (req, res) => res.send('Hello World!'));
-
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}!`);
-    console.log(data);
-  });
-////////////////
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
