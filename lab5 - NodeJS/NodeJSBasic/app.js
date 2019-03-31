@@ -5,11 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/api/v1/index');
+var messageRouter = require('./routes/api/v1/message');  // ??????
 var usersRouter = require('./routes/api/v1/users');
+
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/messagesdemo', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost:27017/messageLab5', {useNewUrlParser: true});
 
 const app = express();
+//////////
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,6 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/message', messageRouter);  // ??????
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
