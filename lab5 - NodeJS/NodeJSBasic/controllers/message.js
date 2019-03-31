@@ -59,9 +59,23 @@ let post = (req, res, next) => {
 module.exports.post = post;
 
 //PUT /api/v1/messages/:id
+let put = (req, res, next) => {
+  Message.findOneAndUpdate({id: req.params._id }, req.body, { new: true }, (err, message) => {
+    const id = parseInt(req.params.id, 10);
+    if (err) {
+      res.send(err);
+    }
+    res.json({
+      "message": `UPDATING a message with id ${id}`,
+      "content": message,
+      "id": id
+    });
+  });
+}
+module.exports.put = put;
 
 //DELETE /api/v1/messages/:id
-
+/*
 let delete = (req, res) => {
   Message.remove({_id: req.params._id }, (err, message) => {
     if (err) {
@@ -73,7 +87,7 @@ let delete = (req, res) => {
     });
   });
 }
-
+*/
 
 /*
 let delete = (req, res) => {
