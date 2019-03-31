@@ -11,6 +11,17 @@ var usersRouter = require('./routes/api/v1/users');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/messageLab5', {useNewUrlParser: true});
 
+//////////
+// test mongoose connection
+//mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("we're connected!");
+  // we're connected!
+});
+
+//////////
 const app = express();
 //////////
 
