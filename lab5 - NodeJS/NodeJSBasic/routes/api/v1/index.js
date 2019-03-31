@@ -22,7 +22,7 @@ router.post('/api/v1/messages', messageController.post);
 //PUT /api/v1/messages/:id
 
 //DELETE /api/v1/messages/:id
-router.delete('/api/v1/messages/:id', messageController.del);
+//router.delete('/api/v1/messages/:id', messageController.delete);
 
 //GET /api/v1/messages?user=username
 //req.params.username

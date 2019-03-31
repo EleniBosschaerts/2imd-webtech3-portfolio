@@ -35,9 +35,30 @@ module.exports.post = post;
 
 //PUT /api/v1/messages/:id
 
-//DELETE /api/v1/messages/:id
 
-let delete = (req, res, next) => {
+//DELETE /api/v1/messages/:id
+/*
+let delete = (req, res) => {
+  res.send('DELETE request to homepage');
+}
+*/
+/*let delete = (req, res) {
+  res.send('DELETE request to homepage');
+  /*Message.find({}, (err, docs) => {
+    if (messages.id === id) {
+        //db.splice(index, 1);
+        docs = "DELETING a message with id id";
+        res.json({
+            "status": "success",
+            "data": {
+              "messages": docs
+            }
+        }
+    });
+  });
+});
+
+  /* vb.
   const id = parseInt(req.params.id, 10);
     Message.find({}, (err, docs) => { //  Message = mongoose.model
             if (messages.id === id) {
@@ -50,10 +71,11 @@ let delete = (req, res, next) => {
                             }
                     })
             }
-    });
-}
+    })
+    */
 
-module.exports.delete = delete;
+
+//module.exports.delete = delete;
 
 
 /*
@@ -78,3 +100,4 @@ app.delete('/api/v1/todos/:id', (req, res) => {
 
 //GET /api/v1/messages?user=username
 //TIP req.params.username
+
