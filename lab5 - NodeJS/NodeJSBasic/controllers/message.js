@@ -149,6 +149,33 @@ app.delete('/api/v1/todos/:id', (req, res) => {
 });
 */
 
-
 //GET /api/v1/messages?user=username
 //TIP req.params.username
+// expressjs.com/en/4x/api.html#req.param
+// expressjs.com/en/4x/api.html#req.query
+/*
+// GET /shoes?order=desc&shoe[color]=blue&shoe[type]=converse
+req.query.order
+// => "desc"
+*/
+let getByUser = (req, res, next) => {
+  //let username = req.body.user;
+  let username = req.query.user;
+  //const username = req.user.username;
+  //const username = req.param('user');
+  //const username = req.params.user;
+  Message.find({user: username }, (err, docs) => { 
+    if (err) {
+      res.send(err);
+    }
+    res.json({
+      "status": "success",
+      "data": {
+        "messages": `GETTING message for username ${username}`
+      },
+      "username": username
+    });
+    //console.log(id); // WERKT 🔥
+  });
+}
+module.exports.getByUser = getByUser;
