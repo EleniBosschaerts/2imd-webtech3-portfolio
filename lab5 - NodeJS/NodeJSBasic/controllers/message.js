@@ -7,7 +7,8 @@ let get = (req, res, next) => {
     res.json({
       "status": "success",
       "data": {
-        "messages": "GETTING messages" // docs
+        "messages": "GETTING messages", // docs
+        "content": docs
       }
       // = object json binnenin json
     });
@@ -16,20 +17,40 @@ let get = (req, res, next) => {
 }
 module.exports.get = get;
 
-//GET /api/v1/messages/:id
+//GET /api/v1/messages/:id > getById
+let getById = (req, res, next) => {
+  Message.find({}, (err, docs) => { //  Message = mongoose.model
+    const id = parseInt(req.params.id, 10);
+    // if(Message.id === id){ }
+    res.json({
+      "status": "success",
+      "data": {
+        "messages": `GETTING messages with ID ${id}` // docs
+      }
+      // = object json binnenin json
+    });
+    console.log(id);
+  });
+}
+module.exports.getById = getById;
 
 
 //POST /api/v1/messages
 let post = (req, res, next) => {
-  Message.find({}, (err, docs) => { //  Message = mongoose.model
-    docs = "POSTING a new message for user Pikachu";
+  let user = req.body.user;
+  let text = req.body.text;
+  let m = new Message();
+  m.user = user;
+  m.text = text;
+  m.save(); // opslaan 
+    docsOffline = "POSTING a new message for user Pikachu";
     res.json({
       "status": "success",
       "data": {
-        "messages": docs //"POSTING a new message for user Pikachu" 
+        "messages": m, 
+        "offline": docsOffline
       }
     });
-  });
 }
 module.exports.post = post;
 

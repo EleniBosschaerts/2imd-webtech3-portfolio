@@ -15,6 +15,7 @@ let messageController = require('../../../controllers/message');
 router.get('/api/v1/messages', messageController.get);
 
 //GET /api/v1/messages/:id
+router.get('/api/v1/messages/:id', messageController.getById);
 
 //POST /api/v1/messages
 router.post('/api/v1/messages', messageController.post);
