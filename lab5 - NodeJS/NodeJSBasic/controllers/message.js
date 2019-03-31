@@ -30,7 +30,7 @@ let getById = (req, res, next) => {
     res.json({
       "status": "success",
       "data": {
-        "messages": `GETTING messages with ID ${id}`, 
+        "messages": `GETTING messages with ID ${id}`,
       }
     });
     //console.log(id); // WERKT 🔥
@@ -60,9 +60,21 @@ module.exports.post = post;
 
 //PUT /api/v1/messages/:id
 
-
-
 //DELETE /api/v1/messages/:id
+
+let delete = (req, res) => {
+  Message.remove({_id: req.params._id }, (err, message) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json({
+      "message": "DELETING a message with id id",
+      "status": "Successfully deleted contact"
+    });
+  });
+}
+
+
 /*
 let delete = (req, res) => {
   res.send('DELETE request to homepage');
