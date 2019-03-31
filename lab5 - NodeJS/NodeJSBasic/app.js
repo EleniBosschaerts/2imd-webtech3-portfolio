@@ -16,11 +16,10 @@ mongoose.connect('mongodb://localhost:27017/messageLab5', {useNewUrlParser: true
 //mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("we're connected!");
+db.once('open', function() { 
   // we're connected!
+  console.log("we're connected!");
 });
-
 //////////
 const app = express();
 //////////

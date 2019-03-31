@@ -4,6 +4,9 @@ const Message = require('../models/message')
 // messageController
 let get = (req, res, next) => {
   Message.find({}, (err, docs) => { //  Message = mongoose.model
+    if (err) {
+      res.send(err);
+    }
     res.json({
       "status": "success",
       "data": {
@@ -19,17 +22,18 @@ module.exports.get = get;
 
 //GET /api/v1/messages/:id > getById
 let getById = (req, res, next) => {
-  Message.find({}, (err, docs) => { //  Message = mongoose.model
+  Message.findById(req.params._id, (err, docs) => { //  Message = mongoose.model
     const id = parseInt(req.params.id, 10);
-    // if(Message.id === id){ }
+    if (err) {
+      res.send(err);
+    }
     res.json({
       "status": "success",
       "data": {
-        "messages": `GETTING messages with ID ${id}` // docs
+        "messages": `GETTING messages with ID ${id}`, 
       }
-      // = object json binnenin json
     });
-    console.log(id);
+    //console.log(id); // WERKT 🔥
   });
 }
 module.exports.getById = getById;
@@ -43,18 +47,19 @@ let post = (req, res, next) => {
   m.user = user;
   m.text = text;
   m.save(); // opslaan 
-    docsOffline = "POSTING a new message for user Pikachu";
-    res.json({
-      "status": "success",
-      "data": {
-        "messages": m, 
-        "offline": docsOffline
-      }
-    });
+  docsOffline = "POSTING a new message for user Pikachu";
+  res.json({
+    "status": "success",
+    "data": {
+      "messages": m,
+      "offline": docsOffline
+    }
+  });
 }
 module.exports.post = post;
 
 //PUT /api/v1/messages/:id
+
 
 
 //DELETE /api/v1/messages/:id
@@ -121,4 +126,3 @@ app.delete('/api/v1/todos/:id', (req, res) => {
 
 //GET /api/v1/messages?user=username
 //TIP req.params.username
-
