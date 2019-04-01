@@ -175,7 +175,6 @@ let getByUser = (req, res, next) => {
       },
       "username": username
     });
-    //console.log(id); // WERKT 🔥
   });
 }
 module.exports.getByUser = getByUser;
