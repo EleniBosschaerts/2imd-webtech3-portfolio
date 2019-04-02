@@ -27,7 +27,7 @@ router.post('/api/v1/messages', messageController.post);
 router.put('/api/v1/messages/:id', messageController.put);
 
 //DELETE /api/v1/messages/:id
-//router.delete('/api/v1/messages/:id', messageController.delete);
+router.delete('/api/v1/messages/:id', messageController.del);
 
 module.exports = router;
 

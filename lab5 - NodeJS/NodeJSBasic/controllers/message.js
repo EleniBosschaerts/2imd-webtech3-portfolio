@@ -1,7 +1,7 @@
 const Message = require('../models/message')
 
 //GET /api/v1/messages OR //GET /api/v1/messages?user=username
-// messageController
+// messageController //GET /api/v1/messages?user=username //req.query.user
 let get = (req, res, next) => {
   Message.find({}, (err, docs) => { //  Message = mongoose.model
     if (err) {
@@ -30,39 +30,6 @@ let get = (req, res, next) => {
 }
 module.exports.get = get;
 
-//GET /api/v1/messages?user=username
-//TIP req.params.username
-// expressjs.com/en/4x/api.html#req.param
-// expressjs.com/en/4x/api.html#req.query
-/*
-// GET /shoes?order=desc&shoe[color]=blue&shoe[type]=converse
-req.query.order
-// => "desc"
-*/
-
-/*
-let getByUser = (req, res, next) => {
-  //let username = req.body.user;
-  let username = req.query.user;
-  //const username = req.user.username;
-  //const username = req.param('user');
-  //const username = req.params.user;
-  Message.find({user: username }, (err, docs) => { 
-    if (err) {
-      res.send(err);
-    }
-    res.json({
-      "status": "success",
-      "data": {
-        "messages": `GETTING message for username ${username}`
-      },
-      "username": username
-    });
-  });
-}
-module.exports.getByUser = getByUser;
-*/
-
 //GET /api/v1/messages/:id > getById
 let getById = (req, res, next) => {
   Message.findById(req.params._id, (err, docs) => { //  Message = mongoose.model
@@ -80,7 +47,6 @@ let getById = (req, res, next) => {
   });
 }
 module.exports.getById = getById;
-
 
 //POST /api/v1/messages
 let post = (req, res, next) => {
@@ -109,6 +75,7 @@ let put = (req, res, next) => {
       res.send(err);
     }
     res.json({
+      "status": "success",
       "message": `UPDATING a message with id ${id}`,
       "content": message,
       "id": id
@@ -118,19 +85,21 @@ let put = (req, res, next) => {
 module.exports.put = put;
 
 //DELETE /api/v1/messages/:id
-/*
-let delete = (req, res) => {
+
+let del = (req, res) => {
   Message.remove({_id: req.params._id }, (err, message) => {
+    const id = parseInt(req.params.id, 10);
     if (err) {
       res.send(err);
     }
     res.json({
-      "message": "DELETING a message with id id",
-      "status": "Successfully deleted contact"
+      "status": "success",
+      "message": `DELETING a message with id ${id}`,
+      "status": "Successfully deleted a message"
     });
   });
 }
-*/
+
 
 /*
 let delete = (req, res) => {
@@ -169,8 +138,7 @@ let delete = (req, res) => {
     })
     */
 
-
-//module.exports.delete = delete;
+module.exports.del = del;
 
 
 /*
