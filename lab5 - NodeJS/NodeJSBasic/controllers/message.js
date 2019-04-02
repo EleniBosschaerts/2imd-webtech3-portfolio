@@ -85,7 +85,7 @@ let put = (req, res, next) => {
 module.exports.put = put;
 
 //DELETE /api/v1/messages/:id
-
+// let del, ipv delete // want delete werkt niet 
 let del = (req, res) => {
   Message.remove({_id: req.params._id }, (err, message) => {
     const id = parseInt(req.params.id, 10);
@@ -100,64 +100,6 @@ let del = (req, res) => {
   });
 }
 
-
-/*
-let delete = (req, res) => {
-  res.send('DELETE request to homepage');
-}
-*/
-/*let delete = (req, res) {
-  res.send('DELETE request to homepage');
-  /*Message.find({}, (err, docs) => {
-    if (messages.id === id) {
-        //db.splice(index, 1);
-        docs = "DELETING a message with id id";
-        res.json({
-            "status": "success",
-            "data": {
-              "messages": docs
-            }
-        }
-    });
-  });
-});
-
-  /* vb.
-  const id = parseInt(req.params.id, 10);
-    Message.find({}, (err, docs) => { //  Message = mongoose.model
-            if (messages.id === id) {
-              db.splice(index, 1);
-              docs = "POSTING a new message for user Pikachu";
-                    res.json({
-                      "status": "success",
-                            "data": {
-                              "messages": docs //"POSTING a new message for user Pikachu" 
-                            }
-                    })
-            }
-    })
-    */
-
 module.exports.del = del;
-
-
-/*
-app.delete('/api/v1/todos/:id', (req, res) => {
-  const id = parseInt(req.params.id, 10);
-  db.map((todo, index) => {
-    if (todo.id === id) {
-       db.splice(index, 1);
-       return res.status(200).send({
-         success: 'true',
-         message: 'Todo deleted successfuly',
-       });
-    }
-  });
-    return res.status(404).send({
-      success: 'false',
-      message: 'todo not found',
-    });
-});
-*/
 
 
