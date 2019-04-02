@@ -17,6 +17,9 @@ router.get('/api/v1/messages', messageController.get);
 //GET /api/v1/messages/:id
 router.get('/api/v1/messages/:id', messageController.getById);
 
+//GET /api/v1/messages?user=username
+router.get('/api/v1/messages/?user=username', messageController.get);
+
 //POST /api/v1/messages
 router.post('/api/v1/messages', messageController.post);
 
@@ -25,9 +28,6 @@ router.put('/api/v1/messages/:id', messageController.put);
 
 //DELETE /api/v1/messages/:id
 //router.delete('/api/v1/messages/:id', messageController.delete);
-
-//GET /api/v1/messages?user=username
-router.get('/api/v1/messages/?user=username', messageController.getByUser);
 
 module.exports = router;
 
