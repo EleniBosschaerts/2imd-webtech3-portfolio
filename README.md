@@ -47,3 +47,4 @@ Files [Node.JS](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/tree
 
 Aparte Private Repositorie voor Heroku [Node.JS](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio_lab5-nodejs-basics) > Works online on Heroku
 
+Heroku Link [lab5-nodejs-basics.herokuapp.com](https://lab5-nodejs-basics.herokuapp.com)
