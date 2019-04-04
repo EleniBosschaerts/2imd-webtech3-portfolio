@@ -43,7 +43,7 @@ Files [Lab4 - appPrototype](https://github.com/EleniBosschaerts/2imd-webtech3-po
 ### Node.JS
 Link to Codepen [api url tester](https://codepen.io/Eleni_1/pen/KYKWBm)
 
-Files [Node.JS](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/tree/master/lab5%20-%20NodeJS/NodeJSBasic)
+Files [Node.JS](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/tree/master/lab5%20-%20NodeJS/NodeJSBasic)> Works offline in Postman
 
-Aparte Private Repositorie voor Heroku [Node.JS](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio_lab5-nodejs-basics)
+Aparte Private Repositorie voor Heroku [Node.JS](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio_lab5-nodejs-basics) > Works online on Heroku
 
