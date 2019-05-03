@@ -49,7 +49,7 @@ Aparte Private Repositorie voor Heroku [Node.JS](https://github.com/EleniBosscha
 
 Heroku Link [lab5-nodejs-basics.herokuapp.com](https://lab5-nodejs-basics.herokuapp.com)
 
-
+Developers
 ## [skill 6: sockets]()
 
 
@@ -57,13 +57,17 @@ Heroku Link [lab5-nodejs-basics.herokuapp.com](https://lab5-nodejs-basics.heroku
 > in project 
 
 ## [skills 8: mongodb](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/tree/master/skills%208:%20mongodb)
+
+### M001: MongoDB Basics 
 [M001: MongoDB Basics - Course Completion Confirmation](http://university.mongodb.com/course_completion/78fe7c5d-f07a-4018-bd71-b3c5a822)
 
 ![alt text](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/blob/master/skills%208:%20mongodb/M001-CourseCompletionConfirmation_EleniBosschaerts.jpg "Course Completion Confirmation")
 ![alt text](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/blob/master/skills%208:%20mongodb/Schermafbeelding%202019-04-26%20om%2010.49.32.png "M001: MongoDB Basics")
-![alt text](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/blob/master/skills%208:%20mongodb/Schermafbeelding%202019-04-26%20om%2010.49.47.png "M220JS voortgang")
 
-[M220JS: MongoDB for Javascript Developers - Course Completion Confirmation (http://university.mongodb.com/course_completion/72ffd7ea-2742-4421-89f0-9bf98f80)
+### M220JS: MongoDB for Javascript 
+[M220JS: MongoDB for Javascript  - Course Completion Confirmation](http://university.mongodb.com/course_completion/72ffd7ea-2742-4421-89f0-9bf98f80)
+
+![alt text](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/blob/master/skills%208:%20mongodb/Schermafbeelding%202019-04-26%20om%2010.49.47.png "M220JS voortgang")
 
 
 ## [skill 9: SASS + bem	]()
