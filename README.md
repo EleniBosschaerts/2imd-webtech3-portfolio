@@ -63,6 +63,9 @@ Heroku Link [lab5-nodejs-basics.herokuapp.com](https://lab5-nodejs-basics.heroku
 ![alt text](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/blob/master/skills%208:%20mongodb/Schermafbeelding%202019-04-26%20om%2010.49.32.png "M001: MongoDB Basics")
 ![alt text](https://github.com/EleniBosschaerts/2imd-webtech3-portfolio/blob/master/skills%208:%20mongodb/Schermafbeelding%202019-04-26%20om%2010.49.47.png "M220JS voortgang")
 
+[M220JS: MongoDB for Javascript Developers - Course Completion Confirmation (http://university.mongodb.com/course_completion/72ffd7ea-2742-4421-89f0-9bf98f80)
+
+
 ## [skill 9: SASS + bem	]()
 > in project 
 
